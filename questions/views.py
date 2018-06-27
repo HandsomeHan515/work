@@ -23,7 +23,7 @@ def PageResponse(self, data, serializer_class):
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
-    queryset = Question.objects.all()
+    queryset = Question.objects.all().order_by('id')
     serializer_class = QuestionSerializer
 
     def list(self, *args, **kwargs):

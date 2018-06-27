@@ -25,7 +25,7 @@ def PageResponse(self, data, serializer_class):
 
 
 class AblityViewSet(viewsets.ModelViewSet):
-    queryset = Ablity.objects.all()
+    queryset = Ablity.objects.all().order_by('id')
     serializer_class = AblitySerializer
 
     def list(self, *args, **kwargs):
