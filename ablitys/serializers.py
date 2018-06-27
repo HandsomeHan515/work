@@ -26,6 +26,7 @@ class AblitySerializer(serializers.ModelSerializer):
 
 class AblityListSerializer(serializers.ModelSerializer):
     level_two = serializers.StringRelatedField()
+    question = serializers.IntegerField()
 
     class Meta:
         model = Ablity

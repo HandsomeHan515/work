@@ -8,7 +8,7 @@ class Question(models.Model):
                      ('3', '三级'))
 
     name = models.CharField(max_length=512)
-    ablity = models.ForeignKey(Ablity, related_name='ablitys')
+    ablity = models.ForeignKey(Ablity, related_name='questions')
     level = models.CharField(max_length=16, choices=level_choices)
     analysis = models.TextField(blank=True, null=True)
 

@@ -34,3 +34,7 @@ class Ablity(models.Model):
     @property
     def level_one(self):
         return self.level_two.parent.id
+
+    @property
+    def question(self):
+        return self.questions.count()
