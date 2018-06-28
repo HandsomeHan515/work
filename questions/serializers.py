@@ -11,6 +11,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 class QuestionListSerializer(serializers.ModelSerializer):
     ablity = serializers.StringRelatedField()
+    ablity_level = serializers.CharField()
 
     class Meta:
         model = Question

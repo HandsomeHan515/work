@@ -21,7 +21,7 @@ class JobLevelTwo(models.Model):
 class Job(models.Model):
     name = models.CharField(max_length=128)
     level_two = models.ForeignKey(JobLevelTwo, related_name='jobs')
-    ablitys = models.ManyToManyField(Ablity)
+    ablitys = models.ManyToManyField(Ablity, related_name='job_ablitys')
     addtime = models.DateTimeField(auto_now_add=True)
     updatetime = models.DateTimeField(auto_now=True)
 

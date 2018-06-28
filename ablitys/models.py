@@ -18,11 +18,17 @@ class AblityLevelTwo(models.Model):
 
 
 class Ablity(models.Model):
+    level_choices = (('1', '一级'),
+                     ('2', '二级'),
+                     ('3', '三级'))
+
     name = models.CharField(max_length=128)
     level_two = models.ForeignKey(AblityLevelTwo, null=True)
     addtime = models.DateTimeField(auto_now_add=True)
     updatetime = models.DateTimeField(auto_now=True)
     is_level = models.BooleanField(default=False)
+    level = models.CharField(
+        max_length=16, choices=level_choices, default='1')
     content = models.TextField(blank=True, null=True)
     one = models.TextField(blank=True, null=True)
     two = models.TextField(blank=True, null=True)
@@ -38,3 +44,7 @@ class Ablity(models.Model):
     @property
     def question(self):
         return self.questions.count()
+
+    @property
+    def job(self):
+        return self.job_ablitys.count()

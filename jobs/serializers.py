@@ -1,10 +1,10 @@
 from rest_framework import serializers
 from .models import Job, JobLevelOne, JobLevelTwo
-from ablitys.serializers import AblitySerializer
+from ablitys.serializers import AblityListSerializer
 
 
 class JobSerializer(serializers.ModelSerializer):
-    ablitys = AblitySerializer(many=True)
+    ablitys = AblityListSerializer(many=True)
 
     class Meta:
         model = Job
