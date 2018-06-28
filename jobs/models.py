@@ -21,7 +21,8 @@ class JobLevelTwo(models.Model):
 class Job(models.Model):
     name = models.CharField(max_length=128)
     level_two = models.ForeignKey(JobLevelTwo, related_name='jobs')
-    ablitys = models.ManyToManyField(Ablity, related_name='job_ablitys')
+    ablitys = models.ManyToManyField(
+        Ablity, related_name='job_ablitys', through='JobAblityShip')
     addtime = models.DateTimeField(auto_now_add=True)
     updatetime = models.DateTimeField(auto_now=True)
 
@@ -42,3 +43,9 @@ class Job(models.Model):
         for item in self.ablitys.all():
             num = num + item.questions.count()
         return num
+
+
+class JobAblityShip(models.Model):
+    job = models.ForeignKey(Job)
+    ablity = models.ForeignKey(Ablity, related_name='nums')
+    num = models.IntegerField()
