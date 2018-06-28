@@ -33,6 +33,10 @@ class Job(models.Model):
         return self.level_two.parent.name
 
     @property
+    def one(self):
+        return self.level_two.parent.id
+
+    @property
     def ablity(self):
         return self.ablitys.count()
 
