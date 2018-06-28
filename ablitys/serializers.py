@@ -17,11 +17,17 @@ class AblityLevelTwoSerializer(serializers.ModelSerializer):
 
 
 class AblitySerializer(serializers.ModelSerializer):
-    level_one = serializers.IntegerField()
 
     class Meta:
         model = Ablity
         fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super(AblitySerializer, self).__init__(*args, **kwargs)
+
+        request = kwargs['context']['request']
+        if request.method == 'GET':
+            self.fields['level_one'] = serializers.IntegerField()
 
 
 class AblityListSerializer(serializers.ModelSerializer):

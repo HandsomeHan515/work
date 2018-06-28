@@ -5,7 +5,8 @@ from ablitys.serializers import AblityListSerializer
 
 class JobSerializer(serializers.ModelSerializer):
     ablitys = AblityListSerializer(many=True)
-    one = serializers.IntegerField()
+    level_one = serializers.CharField()
+    level_two = serializers.StringRelatedField()
 
     class Meta:
         model = Job
