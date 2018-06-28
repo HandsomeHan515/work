@@ -26,9 +26,8 @@ class Ablity(models.Model):
     level_two = models.ForeignKey(AblityLevelTwo, null=True)
     addtime = models.DateTimeField(auto_now_add=True)
     updatetime = models.DateTimeField(auto_now=True)
-    is_level = models.BooleanField(default=False)
     level = models.CharField(
-        max_length=16, choices=level_choices, default='1')
+        max_length=16, choices=level_choices, blank=True, null=True)
     content = models.TextField(blank=True, null=True)
     one = models.TextField(blank=True, null=True)
     two = models.TextField(blank=True, null=True)
