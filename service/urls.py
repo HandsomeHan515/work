@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^ap/users/', include('users.urls', namespace='v1')),
     url(r'^api/ablitys/', include('ablitys.urls', namespace='v1_ablitys')),
     url(r'^api/questions/', include('questions.urls', namespace='v1_qustions')),
+    url(r'^api/jobs/', include('jobs.urls', namespace='v1_jobs')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
