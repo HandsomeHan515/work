@@ -47,8 +47,4 @@ class Job(models.Model):
 
 class JobAblityShip(models.Model):
     job = models.ForeignKey(Job)
-    ablity = models.ForeignKey(Ablity, related_name='nums')
-    num = models.PositiveIntegerField()
-
-    class Meta:
-        ordering = ('num',)
+    ablity = models.ForeignKey(Ablity)
